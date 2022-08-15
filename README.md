@@ -31,8 +31,9 @@ yarn dev
 ```
 
 tsconfig.json compilerOptionsに以下を追加
+```
     "types": ["@emotion/react/types/css-prop"],
-
+```
 
 ```frontend/app/.babelrc　を追加
 {
