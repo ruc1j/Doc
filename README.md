@@ -1,4 +1,5 @@
-```ディレクトリ構成
+ディレクトリ構成
+```
 .
 │  
 ├── docker-compose.yml
@@ -11,7 +12,7 @@
 └── frontend
      ├── Dockerfile
      └── app
- ```
+```
 
 # 初めに
 ## front
@@ -36,7 +37,8 @@ tsconfig.json compilerOptionsに以下を追加
     "types": ["@emotion/react/types/css-prop"],
 ```
 
-```frontend/app/.babelrc　を追加
+frontend/app/.babelrc　を追加
+```
 {
     "presets": [
         [
@@ -53,7 +55,22 @@ tsconfig.json compilerOptionsに以下を追加
 }
 ```
 
-```Dockerコマンドメモ
+## back
+初期設定
+```
+docker exec -it backend /bin/sh
+python3 -m venv .venv
+source .venv/bin/activate       ←環境によって異なる
+python -m pip install --upgrade pip setuptools
+pip install -r requirements.txt
+```
+サーバ起動
+```
+uvicorn main:app --reload
+```
+
+Dockerコマンドメモ
+```
 docker-compose down --rmi all --volumes --remove-orphans キャッシュとか色々消しつつdownできる
 docker system prune -f
 ```
